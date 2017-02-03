@@ -19,9 +19,9 @@ The final gif(s) will be created using the current epoch time with gif appended:
 The format of the control file is as follows:
 
 > gifname gifname gifname ..., color, orientation, gapsize<br>
-> where color is something like black, red, green, etc.
-> where orientation is "h" for horizontal and "v" for vertical.
-> where gapsize is the space between gifs in pixels, i.e. 10 in the above example.
+> where color is something like black, red, green, etc.<br>
+> where orientation is "h" for horizontal and "v" for vertical.<br>
+> where gapsize is the space between gifs in pixels, i.e. 10 in the above example.<br>
 
 A results.gif is created for each iteration of the build process and removed once the n+1 gif has been added to the combined gif.  It is removed before the script exits.
 
