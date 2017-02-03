@@ -130,11 +130,11 @@ for l in lines:
         os.unlink("work.gif")
 
 # #Combine anim1.gif and anim2.gif (first row)
-# convert wed_large_1.gif -background black -repage 225x480 -coalesce null: \( wed_large_2.gif -coalesce \) -geometry +125+0 -layers Composite anim1+2.gif
+# convert large_1.gif -background black -repage 225x480 -coalesce null: \( large_2.gif -coalesce \) -geometry +125+0 -layers Composite anim1+2.gif
 # #Combine anim3.gif and anim4.gif (1st part of last row)
-# convert anim1+2.gif -background black -repage 350x480 -coalesce null: \( wed_large_3.gif -coalesce \) -geometry +250+0 -layers Composite anim3+4.gif
+# convert anim1+2.gif -background black -repage 350x480 -coalesce null: \( large_3.gif -coalesce \) -geometry +250+0 -layers Composite anim3+4.gif
 # #Combine anim3+4.gif and anim5.gif (last row)
-# convert anim3+4.gif -repage 425x480 -coalesce null: \( wed_large_4.gif -coalesce \) -geometry +325+0 -layers Composite anim3+4+5.gif
+# convert anim3+4.gif -repage 425x480 -coalesce null: \( large_4.gif -coalesce \) -geometry +325+0 -layers Composite anim3+4+5.gif
 # #Combine all, leaving one in the middle empty
 # convert anim1+2.gif -repage 500x480 -coalesce null: \( anim3+4+5.gif -coalesce \) -geometry +400+0 -layers Composite anim_all.gif
 # # convert anim3+4.gif -fill green -tint 100 green.gif
