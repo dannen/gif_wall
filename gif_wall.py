@@ -33,6 +33,7 @@ f = open(filename)
 lines = f.readlines()
 f.close()
 
+
 def get_num_pixels(filepath):
     width, height = Image.open(open(filepath)).size
     return width, height
@@ -98,7 +99,7 @@ for l in lines:
                     currentimage = resultimage
                 # print "currentimage:", currentimage
 
-                g_w, g_h   = get_num_pixels(currentimage)
+                g_w, g_h = get_num_pixels(currentimage)
                 g2_w, g2_h = get_num_pixels(image_2)
 
                 if "h" in orientation:
@@ -106,14 +107,14 @@ for l in lines:
                     repage_w = g_w
                     geo = g_h + int(gapsize)
                     command = "convert %s -background %s -repage %dx%d -coalesce null: \\( %s -coalesce \\) -geometry +0+%d -layers Composite %s" % \
-                    (image_1, bgcolor, repage_w, repage_h, image_2, geo, resultimage)
+                        (image_1, bgcolor, repage_w, repage_h, image_2, geo, resultimage)
 
                 if "v" in orientation:
                     repage_h = g_h
                     repage_w = g_w + g2_w + int(gapsize)
                     geo = g_w + int(gapsize)
                     command = "convert %s -background %s -repage %dx%d -coalesce null: \\( %s -coalesce \\) -geometry +%d+0 -layers Composite %s" % \
-                    (image_1, bgcolor, repage_w, repage_h, image_2, geo, resultimage)
+                        (image_1, bgcolor, repage_w, repage_h, image_2, geo, resultimage)
 
 
                 # command = "convert %s -background %s -repage %dx%d -coalesce null: \\( %s -coalesce \\) -geometry +%d+0 -layers Composite %s" % \
@@ -127,7 +128,7 @@ for l in lines:
         copyfile(resultimage, finalname)
         os.unlink(resultimage)
         os.unlink("work.gif")
-        
+
 # #Combine anim1.gif and anim2.gif (first row)
 # convert wed_large_1.gif -background black -repage 225x480 -coalesce null: \( wed_large_2.gif -coalesce \) -geometry +125+0 -layers Composite anim1+2.gif
 # #Combine anim3.gif and anim4.gif (1st part of last row)
@@ -137,8 +138,6 @@ for l in lines:
 # #Combine all, leaving one in the middle empty
 # convert anim1+2.gif -repage 500x480 -coalesce null: \( anim3+4+5.gif -coalesce \) -geometry +400+0 -layers Composite anim_all.gif
 # # convert anim3+4.gif -fill green -tint 100 green.gif
-
-
 
 # for i in onlyfiles:
 #     processfile = i
